@@ -1,12 +1,13 @@
-import CartIcon from "../Cart/CartIcon";
-import classes from "./HeaderCartButton.module.css";
-import { useContext } from "react";
-import CartContext from "../../store/cart-context";
+import { useContext } from 'react';
+
+import CartIcon from '../Cart/CartIcon';
+import CartContext from '../../store/cart-context';
+import classes from './HeaderCartButton.module.css';
 
 const HeaderCartButton = (props) => {
-  const CartCtx = useContext(CartContext);
+  const cartCtx = useContext(CartContext);
 
-  const numberOfCartItems = CartCtx.item.reduce((curNumber, item) => {
+  const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
     return curNumber + item.amount;
   }, 0);
 
